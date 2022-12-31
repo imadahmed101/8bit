@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar'
+import Navigation from './components/Navigation'
+import Hero from './components/Hero'
+import Error from './pages/Error'
+import Games from './pages/Games'
+import New from './pages/New'
+import Upcoming from './pages/Upcoming'
+import Company from './pages/Company'
+import Download from './pages/Download'
+import Pacmanz from './pages/games/Pacmanz'
+import Snakez from './pages/games/Snakez'
+import Brickz from './pages/games/Brickz'
+import Marioz from './pages/games/Marioz'
+import Flappybirdz from './pages/games/Flappybirdz'
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  < BrowserRouter >
+  <Navigation />
+  <Routes>
+    <Route path="/" element={<Hero />} />
+    <Route path="/games" element={<Games />} />
+    <Route path="/new" element={<New />} />
+    <Route path="/upcoming" element={<Upcoming />} />
+    <Route path="/company" element={<Company />} />
+    <Route path="/download" element={<Download />} />
+    <Route path="/pacmanz" element={<Pacmanz />} />
+    <Route path="/snakez" element={<Snakez />} />
+    <Route path="/brickz" element={<Brickz />} />
+    <Route path="/marioz" element={<Marioz />} />
+    <Route path="/flappybirdz" element={<Flappybirdz />} />
+    <Route path="/*" element={<Error />} />
+  </Routes>
+
+</BrowserRouter >
+  )
 }
 
-export default App;
+export default App
